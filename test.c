@@ -1,6 +1,10 @@
 #include <stdio.h>
 
-#define BLAWORK_IMPL_WINAPI
+//#define BLAWORK_IMPL_NULL
+//#define BLAWORK_IMPL_C11
+//#define BLAWORK_IMPL_WINAPI
+//#define BLAWORK_IMPL_POSIX
+//#define BLAWORK_IMPL_CPP11
 #define BLAWORK_IMPLEMENTATION
 #include "blawork.h"
 
