@@ -8,11 +8,17 @@
 #define BLAWORK_IMPLEMENTATION
 #include "blawork.h"
 
+#if 1
 #include <Windows.h> /* for Sleep */
+#define mysleep(x) Sleep(x * 1000)
+#else
+#include <unistd.h> /* for sleep */
+#define mysleep(x) sleep(x)
+#endif
 
 static void doit(void * arg)
 {
-    Sleep(1000);
+    mysleep(1);
     printf("%p\n", arg);
 }
 
