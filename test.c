@@ -8,12 +8,7 @@
 #define BLAWORK_IMPLEMENTATION
 #include "blawork.h"
 
-#ifndef BLAWORK_IMPL_WINAPI
-#ifdef __cplusplus
-extern "C"
-#endif
-unsigned Sleep(unsigned ms);
-#endif
+#include <Windows.h> /* for Sleep */
 
 static void doit(void * arg)
 {
