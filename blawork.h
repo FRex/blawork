@@ -34,11 +34,14 @@ typedef struct blawork_impl blawork_impl_t;
 
 static blawork_impl_t * blawork_impl_create(blawork_func_t func, void * arg)
 {
+    (void)func;
+    (void)arg;
     return NULL;
 }
 
 static int blawork_impl_join(blawork_impl_t * impl)
 {
+    (void)impl;
     return 0;
 }
 #define BLAWORK_IMPL_NAME_STRING "NONE"
