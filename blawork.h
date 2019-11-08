@@ -100,7 +100,7 @@ typedef HANDLE blawork_thread_t;
 #define BLAWORK_HELPER_RET DWORD WINAPI
 #define BLAWORK_HELPER_RET_VALUE 0u
 #define BLAWORK_CREATE_THREAD(ret, f) ((ret->thread = CreateThread(NULL, 0u, f, ret, 0u, NULL)) != NULL)
-#define BLAWORK_JOIN_THREAD(thread) WaitForSingleObject(thread, INFINITE);
+#define BLAWORK_JOIN_THREAD(thread) do {WaitForSingleObject(thread, INFINITE); CloseHandle(thread);} while(0);
 #define BLAWORK_IMPL_NAME_STRING "WINAPI"
 #endif /* BLAWORK_IMPL_WINAPI */
 
