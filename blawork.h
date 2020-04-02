@@ -65,6 +65,9 @@ static blawork_impl_t * blawork_impl_create(blawork_func_t func, void * arg)
 
 static int blawork_impl_join(blawork_impl_t * impl)
 {
+    if(!impl)
+        return 0;
+
     try {
         if(impl->joinable())
             impl->join();
