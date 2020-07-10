@@ -45,9 +45,13 @@ To use it, include the header as normal and define `BLAWORK_IMPLEMENTATION` in
 a single translation unit. Beware: the headers included in some implementations
 are very heavy and noisy (e.g. `Windows.h` on `BLAWORK_IMPL_WINAPI`).
 
-It will default to `BLAWORK_IMPL_NULL` which is plain C version that does all
-the work in `blawork_end` and makes no extra allocations of API calls and thus
-cannot ever fail and will always complete the work (but on the same thread).
+It used to default to `BLAWORK_IMPL_NULL` which is plain C version that does all
+the work in `blawork_end` and makes no extra allocations or API calls and thus
+cannot ever fail and will always complete the work (but on the same thread), but
+doesn't anymore to avoid erorrs (running with plain C single threaded version by
+mistake) so one of `BLAWORK_IMPL_` macros (including `BLAWORK_IMPL_NULL`) must
+be defined in the same file as `BLAWORK_IMPLEMENTATION` was defined in.
+
 To eanble one of the threading APIs to be used internally define one of:
 `BLAWORK_IMPL_CPP11`, `BLAWORK_IMPL_C11`, `BLAWORK_IMPL_WINAPI`, `BLAWORK_IMPL_POSIX`.
 

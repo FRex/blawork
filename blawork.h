@@ -20,11 +20,11 @@ const char * blawork_implementation_name(void);
 #include <stdlib.h>
 
 #if (defined(BLAWORK_IMPL_NULL) + defined(BLAWORK_IMPL_CPP11) + defined(BLAWORK_IMPL_C11) + defined(BLAWORK_IMPL_WINAPI) + defined(BLAWORK_IMPL_POSIX)) == 0
-#define BLAWORK_IMPL_NULL
+#error "no implementation requested, define one of the BLAWORK_IMPL_ macros"
 #endif
 
 #if (defined(BLAWORK_IMPL_NULL) + defined(BLAWORK_IMPL_CPP11) + defined(BLAWORK_IMPL_C11) + defined(BLAWORK_IMPL_WINAPI) + defined(BLAWORK_IMPL_POSIX)) > 1
-#error "more than one implementation requested"
+#error "more than one implementation requested, more than one BLAWORK_IMPL_ macro defined"
 #endif
 
 
